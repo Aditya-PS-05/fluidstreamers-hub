@@ -1,0 +1,119 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 97%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 266 54% 45%;
+    --primary-foreground: 240 5.9% 95%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 278 95% 76%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 270 76% 53%;
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 240 10% 3.9%;
+    --sidebar-primary: 266 54% 45%;
+    --sidebar-primary-foreground: 240 5.9% 95%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 240 5.9% 90%;
+    --sidebar-ring: 270 76% 53%;
+  }
+
+  .dark {
+    --background: 240 10% 4%;
+    --foreground: 240 5.9% 95%;
+    --card: 240 10% 7%;
+    --card-foreground: 240 5.9% 95%;
+    --popover: 240 10% 7%;
+    --popover-foreground: 240 5.9% 95%;
+    --primary: 266 54% 55%;
+    --primary-foreground: 240 5.9% 95%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 240 5.9% 95%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 278 95% 76%;
+    --accent-foreground: 240 5.9% 95%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 240 5.9% 95%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 270 76% 53%;
+
+    --sidebar-background: 240 10% 7%;
+    --sidebar-foreground: 240 5.9% 95%;
+    --sidebar-primary: 266 54% 55%;
+    --sidebar-primary-foreground: 240 5.9% 95%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 5.9% 95%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 270 76% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 dark:bg-black/30 dark:border-white/10 shadow-lg;
+  }
+  
+  .neon-border {
+    @apply relative isolate overflow-hidden rounded-lg before:absolute before:inset-0 before:-z-10 before:p-[1px] before:bg-gradient-to-r before:from-twitch-lightPurple before:via-twitch-pink before:to-twitch-purple before:rounded-lg;
+  }
+  
+  .pill-gradient {
+    @apply bg-gradient-to-r from-twitch-purple via-twitch-lightPurple to-twitch-pink text-white;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  .chat-message {
+    @apply animate-message-appear;
+  }
+
+  .reaction {
+    @apply animate-reaction-popup;
+  }
+  
+  .stream-badge {
+    @apply bg-red-500 text-white text-xs px-2 py-0.5 rounded-full font-bold flex items-center animate-pulse-subtle;
+  }
+  
+  .shimmer {
+    @apply relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent;
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
